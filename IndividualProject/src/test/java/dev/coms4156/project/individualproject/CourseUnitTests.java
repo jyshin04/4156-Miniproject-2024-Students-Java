@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Contains unit test for the Course class to validate  
- * itsfunctionality, including methods and the constructor. 
+ * its functionality, including methods and the constructor. 
  */
 @SpringBootTest
 @ContextConfiguration
