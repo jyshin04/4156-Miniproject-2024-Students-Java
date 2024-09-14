@@ -1,3 +1,5 @@
-# Welcome Students of 4156
+# README
 
-Please follow the assignment specifications on Courseworks when completing this project.
+Used mvn for style checking: mvn checkstyle:check
+
+Used pmd for debudding: pmd check -f text -R rulesets/java/quickstart.xml -d src
