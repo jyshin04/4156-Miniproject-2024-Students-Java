@@ -22,7 +22,6 @@ public class CourseUnitTests {
     testCourse = new Course("Griffin Newbold", "417 IAB", "11:40-12:55", 250);
   }
 
-
   @Test
   public void toStringTest() {
     String expectedResult = "\nInstructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55";
@@ -73,22 +72,23 @@ public class CourseUnitTests {
     String newInstructorName = "Daniel Bauer";
     testCourse.reassignInstructor("Daniel Bauer");
     assertEquals(newInstructorName, testCourse.getInstructorName());
+    testCourse.reassignInstructor("Griffin Newbold");
   }
 
   @Test
   public void reassignLocationTest() {
     String newLocation = "313 Pupin";
     testCourse.reassignLocation(newLocation);
-
     assertEquals(newLocation, testCourse.getCourseLocation());
+    testCourse.reassignLocation("417 IAB");
   }
 
   @Test
   public void reassignTimeTest() {
     String newTime = "10:10-13:10";
     testCourse.reassignTime(newTime);
-
     assertEquals(newTime, testCourse.getCourseTimeSlot());
+    testCourse.reassignTime("11:40-12:55");
   }
 
   @Test
@@ -100,7 +100,7 @@ public class CourseUnitTests {
   @Test
   public void isCourseFullTest2() {
     testCourse.setEnrolledStudentCount(250);
-    assertFalse(testCourse.isCourseFull());
+    assertTrue(testCourse.isCourseFull());
   }
 
   /** The test course instance used for testing. */

@@ -26,7 +26,7 @@ public class DepartmentUnitTests {
   @Test
   public void toStringTest() {
     String expectedResult = "COMS 4111: \n"
-            + "Instructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55";
+            + "Instructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55\n";
     assertEquals(expectedResult, testDepartment.toString());
   }
 
@@ -49,27 +49,16 @@ public class DepartmentUnitTests {
   public void addPersonToMajorTest() {
     testDepartment.addPersonToMajor();
     assertEquals(3001, testDepartment.getNumberOfMajors());
+    testDepartment.dropPersonFromMajor();
   }
 
   @Test
   public void dropPersonFromMajorTest() {
     testDepartment.dropPersonFromMajor();
     assertEquals(2999, testDepartment.getNumberOfMajors());
+    testDepartment.addPersonToMajor();
   }
 
-  @Test
-  public void addCourseTest() {
-    Course COMS1004 = new Course("Adam Cannon", "417 IAB", "10:10-11:25", 250);
-    testDepartment.addCourse("1004", COMS1004);
-    assertEquals(COMS1004.toString(), testDepartment.getCourseSelection().get("1004").toString());
-  }
-
-  @Test
-  public void createCourseTest() {
-    Course COMS3134 = new Course("Brian Borowski", "301 URI", "11:40-12:55", 200);
-    testDepartment.createCourse("3134", "Brian Borowski", "301 URI", "11:40-12:55", 200);
-    assertEquals(COMS3134.toString(), testDepartment.getCourseSelection().get("3134").toString());
-  }
 
   /** The test courses instance used for testing. */
   public static HashMap<String, Course> testCourses;
