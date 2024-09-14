@@ -1,6 +1,8 @@
 package dev.coms4156.project.individualproject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -25,6 +27,80 @@ public class CourseUnitTests {
   public void toStringTest() {
     String expectedResult = "\nInstructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55";
     assertEquals(expectedResult, testCourse.toString());
+  }
+
+  @Test
+  public void enrollStudentTest1(){
+    testCourse.setEnrolledStudentCount(200);
+    assertTrue(testCourse.enrollStudent());
+  }
+
+  @Test
+  public void enrollStudentTest2(){
+    testCourse.setEnrolledStudentCount(250);
+    assertFalse(testCourse.enrollStudent());
+  }
+
+  @Test
+  public void dropStudentTest1(){
+    testCourse.setEnrolledStudentCount(200);
+    assertTrue(testCourse.dropStudent());
+  }
+
+  @Test
+  public void dropStudentTest2(){
+    testCourse.setEnrolledStudentCount(0);
+    assertFalse(testCourse.dropStudent());
+  }
+
+  @Test
+  public void getCourseLocationTest() {
+    assertEquals("417 IAB", testCourse.getCourseLocation());
+  }
+
+  @Test
+  public void getInstructorNameTest() {
+    assertEquals("Griffin Newbold", testCourse.getInstructorName());
+  }
+
+  @Test
+  public void getCourseTimeSlotTest() {
+    assertEquals("11:40-12:55", testCourse.getCourseTimeSlot());
+  }
+
+  @Test
+  public void reassignInstructorTest() {
+    String newInstructorName = "Daniel Bauer";
+    testCourse.reassignInstructor("Daniel Bauer");
+    assertEquals(newInstructorName, testCourse.getInstructorName());
+  }
+
+  @Test
+  public void reassignLocationTest() {
+    String newLocation = "313 Pupin";
+    testCourse.reassignLocation(newLocation);
+
+    assertEquals(newLocation, testCourse.getCourseLocation());
+  }
+
+  @Test
+  public void reassignTimeTest() {
+    String newTime = "10:10-13:10";
+    testCourse.reassignTime(newTime);
+
+    assertEquals(newTime, testCourse.getCourseTimeSlot());
+  }
+
+  @Test
+  public void isCourseFullTest1() {
+    testCourse.setEnrolledStudentCount(200);
+    assertFalse(testCourse.isCourseFull());
+  }
+
+  @Test
+  public void isCourseFullTest2() {
+    testCourse.setEnrolledStudentCount(250);
+    assertFalse(testCourse.isCourseFull());
   }
 
   /** The test course instance used for testing. */
