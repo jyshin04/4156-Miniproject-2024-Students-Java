@@ -1,5 +1,6 @@
 package dev.coms4156.project.individualproject;
 
+import io.micrometer.observation.annotation.Observed;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -34,10 +35,9 @@ public class Course implements Serializable {
    * @return true if the student is successfully enrolled, false otherwise.
    */
   public boolean enrollStudent() {
-    if (enrolledStudentCount >= enrollmentCapacity){
+    if (enrolledStudentCount >= enrollmentCapacity) {
       return false;
-    }
-    else {
+    } else {
       enrolledStudentCount++;
       return true;
     }
@@ -49,11 +49,10 @@ public class Course implements Serializable {
    * @return true if the student is successfully dropped, false otherwise.
    */
   public boolean dropStudent() {
-    if (enrolledStudentCount > 0){
+    if (enrolledStudentCount > 0) {
       enrolledStudentCount--;
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -70,6 +69,7 @@ public class Course implements Serializable {
     return this.courseTimeSlot;
   }
 
+  @Override
   public String toString() {
     return "\nInstructor: " + instructorName
       + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;

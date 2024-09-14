@@ -3,11 +3,13 @@ Course.java
 - changed courseLocation and instructorName for the two misswritten return functions
 - flipped the logic for isCourseFull to return true if full
 - set enrolledStudentCount to 0
+- @Override added to toString()
 
 Department.java
 - remove negative sign from number of majors
 - delete quotation from department chair name
 - only drop person from major if greater than 0
+- @Override added to toString()
 
 RouteController.java
 - return HttpStatus.OK when department retrieve success, HttpStatus.NOT_FOUND when unsuccessful
@@ -15,3 +17,8 @@ RouteController.java
 - change HttpStatus.FORBIDDEN to HttpStatus.NOT_FOUND for get major count function
 - remove negative sign from major count 
 - made the find course time function return the actual time slot instead of "some time"
+
+IndividualProjectApplication.java
+- LiteralsFirstInComparisons fixed
+
+MyFileDatabase.java

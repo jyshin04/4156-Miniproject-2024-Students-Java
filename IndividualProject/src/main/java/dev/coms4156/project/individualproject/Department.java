@@ -68,7 +68,7 @@ public class Department implements Serializable {
    * zero.
    */
   public void dropPersonFromMajor() {
-    if (numberOfMajors > 0){
+    if (numberOfMajors > 0) {
       numberOfMajors--;
     }
   }
@@ -105,6 +105,7 @@ public class Department implements Serializable {
    *
    * @return A string representing the department.
    */
+  @Override
   public String toString() {
     StringBuilder result = new StringBuilder();
     for (Map.Entry<String, Course> entry : courses.entrySet()) {

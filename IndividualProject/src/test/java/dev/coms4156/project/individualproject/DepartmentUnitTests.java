@@ -1,11 +1,12 @@
 package dev.coms4156.project.individualproject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.HashMap;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import java.util.HashMap;
 
 /**
  * Contains unit test for the Department class to validate  
@@ -15,11 +16,14 @@ import java.util.HashMap;
 @ContextConfiguration
 public class DepartmentUnitTests {
 
+  /**
+   * Set up department instance for testing. 
+   */
   @BeforeAll
   public static void setupDepartmentForTesting() {
     testCourses = new HashMap<>();
-    Course COMS4111 = new Course("Griffin Newbold", "417 IAB", "11:40-12:55", 250);
-    testCourses.put("4111", COMS4111);
+    Course coms4111 = new Course("Griffin Newbold", "417 IAB", "11:40-12:55", 250);
+    testCourses.put("4111", coms4111);
     testDepartment = new Department("COMS", testCourses, "Paul Blaer", 3000);
   }
 

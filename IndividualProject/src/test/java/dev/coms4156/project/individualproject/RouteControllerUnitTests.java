@@ -26,7 +26,8 @@ public class RouteControllerUnitTests {
 
   @Test
   public void indexTest() {
-    String expected = "Welcome, in order to make an API call direct your browser or Postman to an endpoint "
+    String expected = 
+            "Welcome, in order to make an API call direct your browser or Postman to an endpoint "
             + "\n\n This can be done using the following format: \n\n http:127.0.0"
             + ".1:8080/endpoint?arg=value";
     assertEquals(expected, testrouteController.index());
@@ -49,7 +50,8 @@ public class RouteControllerUnitTests {
     ResponseEntity<?> responseEntity =
             testrouteController. retrieveCourse("COMS", 3203);
     assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-    String expectedBody = "\nInstructor: Ansaf Salleb-Aouissi; Location: 301 URIS; Time: 10:10-11:25";
+    String expectedBody = 
+            "\nInstructor: Ansaf Salleb-Aouissi; Location: 301 URIS; Time: 10:10-11:25";
     assertEquals(expectedBody, responseEntity.getBody());
   }
 
@@ -91,47 +93,47 @@ public class RouteControllerUnitTests {
 
   @Test
   public void findCourseTimeTest() {
-      assertEquals(HttpStatus.NOT_FOUND,
+    assertEquals(HttpStatus.NOT_FOUND,
               testrouteController.findCourseTime("COSM", 3203).getStatusCode());
-      assertEquals(HttpStatus.OK,
+    assertEquals(HttpStatus.OK,
               testrouteController.findCourseTime("COMS", 3203).getStatusCode());
-      assertEquals("The course meets at: 10:10-11:25.",
+    assertEquals("The course meets at: 10:10-11:25.",
               testrouteController.findCourseTime("COMS", 3203).getBody());
   }
 
   @Test
   public void addMajorToDeptTest() {
-      assertEquals(HttpStatus.NOT_FOUND,
+    assertEquals(HttpStatus.NOT_FOUND,
               testrouteController.addMajorToDept("COSM").getStatusCode());
-      assertEquals(HttpStatus.OK,
+    assertEquals(HttpStatus.OK,
               testrouteController.addMajorToDept("COMS").getStatusCode());
   }
 
   @Test
   public void removeMajorFromDeptTest() {
-      assertEquals(HttpStatus.NOT_FOUND,
+    assertEquals(HttpStatus.NOT_FOUND,
               testrouteController.removeMajorFromDept("COSM").getStatusCode());
-      assertEquals(HttpStatus.OK,
+    assertEquals(HttpStatus.OK,
               testrouteController.removeMajorFromDept("COMS").getStatusCode());
   }
 
   @Test
   public void dropStudentTest() {
-      assertEquals(HttpStatus.NOT_FOUND,
+    assertEquals(HttpStatus.NOT_FOUND,
               testrouteController.dropStudent("COSM", 3203).getStatusCode());
-      assertEquals(HttpStatus.OK,
+    assertEquals(HttpStatus.OK,
               testrouteController.dropStudent("COMS", 3203).getStatusCode());
-      assertEquals("Student has been dropped.",
+    assertEquals("Student has been dropped.",
               testrouteController.dropStudent("COMS", 3203).getBody());
   }
 
   @Test
   public void setEnrollmentCountTest() {
-      assertEquals(HttpStatus.NOT_FOUND,
+    assertEquals(HttpStatus.NOT_FOUND,
               testrouteController.setEnrollmentCount("COSM", 3203, 100).getStatusCode());
-      assertEquals(HttpStatus.OK,
+    assertEquals(HttpStatus.OK,
               testrouteController.setEnrollmentCount("COMS", 3203, 10).getStatusCode());
-      assertEquals("Attributed was updated successfully.",
+    assertEquals("Attributed was updated successfully.",
               testrouteController.setEnrollmentCount("COMS", 3203, 50).getBody());
   }
 
